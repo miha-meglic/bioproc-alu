@@ -245,8 +245,12 @@ model.add_gene(
     logic_type="or",
 )
 
-model.plot_network()
+#model.plot_network()
 
-T, Y = simulator.simulate_sequence(
-    model, [(0, 100, 0, 100, 0, 0), (0, 100, 0, 0, 0, 0)]
+T, Y = simulator.simulate_single(
+    model, (0, 100, 0, 100, 0, 0),
+    plot_on=False
 )
+
+print(Y[100])
+print(model.species_names)

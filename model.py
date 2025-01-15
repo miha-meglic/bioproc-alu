@@ -1,0 +1,36 @@
+import numpy as np 
+
+def solve_model(T,state):
+    A0, A1, B0, B1, CarryIN, I0, I1, AluAND1, AluAND2, AluAND3, AluAND4, AluAND5, AluOR2, AluXOR1, AluXOR2, AluXOR3, AluXOR4, MultiAAND1, MultiAAND2, MultiAAND3, MultiAAND4, MultiBAND1, MultiBAND2, MultiBAND3, MultiBAND4, C0, C1, Carry = state
+    dA0 = -A0*0
+    dA1 = -A1*0
+    dB0 = -B0*0
+    dB1 = -B1*0
+    dCarryIN = -CarryIN*0
+    dI0 = -I0*0
+    dI1 = -I1*0
+    dAluAND1 = -AluAND1*0.1+10*(((A0/5)**4)*((B0/5)**2))/(1+((A0/5)**4)+((B0/5)**2)+((A0/5)**4)*((B0/5)**2))
+    dAluAND2 = -AluAND2*0.1+10*(((A1/5)**4)*((B1/5)**2))/(1+((A1/5)**4)+((B1/5)**2)+((A1/5)**4)*((B1/5)**2))
+    dAluAND3 = -AluAND3*0.1+10*(((AluOR2/5)**4)*((AluXOR2/5)**2))/(1+((AluOR2/5)**4)+((AluXOR2/5)**2)+((AluOR2/5)**4)*((AluXOR2/5)**2))+10*(((B0/5)**4)*((CarryIN/5)**2))/(1+((B0/5)**4)+((CarryIN/5)**2)+((B0/5)**4)*((CarryIN/5)**2))+10*(((A0/5)**4)*((CarryIN/5)**2))/(1+((A0/5)**4)+((CarryIN/5)**2)+((A0/5)**4)*((CarryIN/5)**2))
+    dAluAND4 = -AluAND4*0.1
+    dAluAND5 = -AluAND5*0.1
+    dAluOR2 = -AluOR2*0.1+10*(((AluAND1/5)**4)+((AluAND4/5)**2)+((AluAND5/5)**2)+((AluAND1/5)**4)*((AluAND4/5)**2)+((AluAND1/5)**4)*((AluAND5/5)**2)+((AluAND4/5)**2)*((AluAND5/5)**2)+((AluAND1/5)**4)*((AluAND4/5)**2)*((AluAND5/5)**2))/(1+((AluAND1/5)**4)+((AluAND4/5)**2)+((AluAND5/5)**2)+((AluAND1/5)**4)*((AluAND4/5)**2)+((AluAND1/5)**4)*((AluAND5/5)**2)+((AluAND4/5)**2)*((AluAND5/5)**2)+((AluAND1/5)**4)*((AluAND4/5)**2)*((AluAND5/5)**2))
+    dAluXOR1 = -AluXOR1*0.1+10*(((B0/5)**2))/(1+((A0/5)**4)+((B0/5)**2)+((A0/5)**4)*((B0/5)**2))+10*(((A0/5)**4))/(1+((A0/5)**4)+((B0/5)**2)+((A0/5)**4)*((B0/5)**2))
+    dAluXOR2 = -AluXOR2*0.1+10*(((B1/5)**2))/(1+((A1/5)**4)+((B1/5)**2)+((A1/5)**4)*((B1/5)**2))+10*(((A1/5)**4))/(1+((A1/5)**4)+((B1/5)**2)+((A1/5)**4)*((B1/5)**2))
+    dAluXOR3 = -AluXOR3*0.1+10*(((AluXOR2/5)**2))/(1+((AluOR2/5)**4)+((AluXOR2/5)**2)+((AluOR2/5)**4)*((AluXOR2/5)**2))+10*(((AluOR2/5)**4))/(1+((AluOR2/5)**4)+((AluXOR2/5)**2)+((AluOR2/5)**4)*((AluXOR2/5)**2))
+    dAluXOR4 = -AluXOR4*0.1+10*(((AluXOR1/5)**2))/(1+((CarryIN/5)**4)+((AluXOR1/5)**2)+((CarryIN/5)**4)*((AluXOR1/5)**2))+10*(((CarryIN/5)**4))/(1+((CarryIN/5)**4)+((AluXOR1/5)**2)+((CarryIN/5)**4)*((AluXOR1/5)**2))
+    dMultiAAND1 = -MultiAAND1*0.1+10*(((AluXOR4/5)**4))/(1+((AluXOR4/5)**4)+((I0/5)**2)+((I1/5)**2)+((AluXOR4/5)**4)*((I0/5)**2)+((AluXOR4/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((AluXOR4/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiAAND2 = -MultiAAND2*0.1+10*(((I1/5)**2))/(1+((A0/5)**4)+((I0/5)**2)+((I1/5)**2)+((A0/5)**4)*((I0/5)**2)+((A0/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((A0/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiAAND3 = -MultiAAND3*0.1+10*(((AluAND1/5)**4)*((I0/5)**2))/(1+((AluAND1/5)**4)+((I0/5)**2)+((I1/5)**2)+((AluAND1/5)**4)*((I0/5)**2)+((AluAND1/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((AluAND1/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiAAND4 = -MultiAAND4*0.1+10*(((A1/5)**4)*((I0/5)**2)*((I1/5)**2))/(1+((A1/5)**4)+((I0/5)**2)+((I1/5)**2)+((A1/5)**4)*((I0/5)**2)+((A1/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((A1/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiBAND1 = -MultiBAND1*0.1+10*(((AluXOR3/5)**4))/(1+((AluXOR3/5)**4)+((I0/5)**2)+((I1/5)**2)+((AluXOR3/5)**4)*((I0/5)**2)+((AluXOR3/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((AluXOR3/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiBAND2 = -MultiBAND2*0.1+10*(((I1/5)**2))/(1+((A1/5)**4)+((I0/5)**2)+((I1/5)**2)+((A1/5)**4)*((I0/5)**2)+((A1/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((A1/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiBAND3 = -MultiBAND3*0.1+10*(((AluAND2/5)**4)*((I0/5)**2))/(1+((AluAND2/5)**4)+((I0/5)**2)+((I1/5)**2)+((AluAND2/5)**4)*((I0/5)**2)+((AluAND2/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((AluAND2/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dMultiBAND4 = -MultiBAND4*0.1+10*(((A0/5)**4)*((I0/5)**2)*((I1/5)**2))/(1+((A0/5)**4)+((I0/5)**2)+((I1/5)**2)+((A0/5)**4)*((I0/5)**2)+((A0/5)**4)*((I1/5)**2)+((I0/5)**2)*((I1/5)**2)+((A0/5)**4)*((I0/5)**2)*((I1/5)**2))
+    dC0 = -C0*0.1+10*(((MultiAAND1/20)**4)+((MultiAAND2/20)**4)+((MultiAAND3/20)**4)+((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)+((MultiAAND1/20)**4)*((MultiAAND3/20)**4)+((MultiAAND1/20)**4)*((MultiAAND4/20)**4)+((MultiAAND2/20)**4)*((MultiAAND3/20)**4)+((MultiAAND2/20)**4)*((MultiAAND4/20)**4)+((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND3/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND2/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4))/(1+((MultiAAND1/20)**4)+((MultiAAND2/20)**4)+((MultiAAND3/20)**4)+((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)+((MultiAAND1/20)**4)*((MultiAAND3/20)**4)+((MultiAAND1/20)**4)*((MultiAAND4/20)**4)+((MultiAAND2/20)**4)*((MultiAAND3/20)**4)+((MultiAAND2/20)**4)*((MultiAAND4/20)**4)+((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND3/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND2/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4)+((MultiAAND1/20)**4)*((MultiAAND2/20)**4)*((MultiAAND3/20)**4)*((MultiAAND4/20)**4))
+    dC1 = -C1*0.1+10*(((MultiBAND1/20)**4)+((MultiBAND2/20)**4)+((MultiBAND3/20)**4)+((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)+((MultiBAND1/20)**4)*((MultiBAND3/20)**4)+((MultiBAND1/20)**4)*((MultiBAND4/20)**4)+((MultiBAND2/20)**4)*((MultiBAND3/20)**4)+((MultiBAND2/20)**4)*((MultiBAND4/20)**4)+((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND3/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND2/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4))/(1+((MultiBAND1/20)**4)+((MultiBAND2/20)**4)+((MultiBAND3/20)**4)+((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)+((MultiBAND1/20)**4)*((MultiBAND3/20)**4)+((MultiBAND1/20)**4)*((MultiBAND4/20)**4)+((MultiBAND2/20)**4)*((MultiBAND3/20)**4)+((MultiBAND2/20)**4)*((MultiBAND4/20)**4)+((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND3/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND2/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4)+((MultiBAND1/20)**4)*((MultiBAND2/20)**4)*((MultiBAND3/20)**4)*((MultiBAND4/20)**4))
+    dCarry = -Carry*0.1+10*(((AluAND2/5)**4)+((AluAND3/5)**2)+((AluAND2/5)**4)*((AluAND3/5)**2))/(1+((AluAND2/5)**4)+((AluAND3/5)**2)+((AluAND2/5)**4)*((AluAND3/5)**2))
+    return np.array([dA0, dA1, dB0, dB1, dCarryIN, dI0, dI1, dAluAND1, dAluAND2, dAluAND3, dAluAND4, dAluAND5, dAluOR2, dAluXOR1, dAluXOR2, dAluXOR3, dAluXOR4, dMultiAAND1, dMultiAAND2, dMultiAAND3, dMultiAAND4, dMultiBAND1, dMultiBAND2, dMultiBAND3, dMultiBAND4, dC0, dC1, dCarry])
+
+def solve_model_steady(state):
+    return solve_model(0, state)

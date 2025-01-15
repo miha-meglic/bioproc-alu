@@ -303,5 +303,9 @@ model.add_gene(
 model.plot_network()
 
 T, Y = simulator.simulate_sequence(
-    model, [(0, 100, 0, 100, 100, 0, 0), (0, 100, 0, 0, 100, 0, 0)]
+    model, [(0, 100, 0, 100, 100, 0, 0) , (0, 100, 0, 0, 100, 0, 0)]
 )
+
+#print(T)
+#print('-------------------------------')
+#print(Y)
