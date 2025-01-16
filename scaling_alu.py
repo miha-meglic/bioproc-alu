@@ -1,6 +1,7 @@
 from grenmlin.grn import grn
 from grenmlin import simulator
 
+
 def create_alu_model():
     # Define the GRN
     # Define the GRN
@@ -305,8 +306,8 @@ def create_alu_model():
     return model
 
 
-def scaling_alu(inputA, inputB, I0, I1):
-    A = [100 if x else 0 for x in inputA] 
+def scaling_alu(inputA, inputB, carry_in, I0, I1):
+    A = [100 if x else 0 for x in inputA]
     B = [100 if x else 0 for x in inputB]
     I0 = 100 if I0 else 0
     I1 = 100 if I1 else 0
@@ -322,34 +323,39 @@ def scaling_alu(inputA, inputB, I0, I1):
 
     model = create_alu_model()
     results = []
-    carry = 0
+    carry = carry_in
 
-    print(f'A: {A}')
-    print(f'B: {B}')
+    # print(f'A: {A}')
+    # print(f'B: {B}')
 
     for i in range(0, totalL, 2):
         T, Y = simulator.simulate_single(
-            model, (A[i], A[i+1], B[i], B[i+1], carry, I0, I1), plot_on=False,
+            model,
+            (A[i], A[i + 1], B[i], B[i + 1], carry, I0, I1),
+            plot_on=False,
         )
 
-        print(f'Rotation {i}')
-        
+        # print(f'Rotation {i}')
+
         c0 = Y[100][-3] > 50
         c1 = Y[100][-2] > 50
         carry = 100 if Y[100][-1] > 50 else 0
 
-        print(f'c0: {c0}')
-        print(f'c1: {c1}')
-        print(f'Carry: {carry}')
-        
+        # print(f'c0: {c0}')
+        # print(f'c1: {c1}')
+        # print(f'Carry: {carry}')
+
         results.extend([int(c0), int(c1)])
 
     return results, int(carry > 50)
 
-inputA = [1, 0, 0, 1]
-inputB = [1, 1, 1, 1]
-I0 = 1
-I1 = 1
-results, carry = scaling_alu(inputA, inputB, I0, I1)
-print(f"Results: {results}")
-print(f"Carry: {carry}")
+
+if __name__ == "__main__":
+    inputA = [1, 0, 0, 1]
+    inputB = [1, 1, 1, 1]
+    carry_in = 0
+    I0 = 1
+    I1 = 1
+    results, carry = scaling_alu(inputA, inputB, carry_in, I0, I1)
+    print(f"Results: {results}")
+    print(f"Carry: {carry}")
