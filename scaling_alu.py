@@ -3,6 +3,7 @@ from grenmlin import simulator
 
 def create_alu_model():
     # Define the GRN
+    # Define the GRN
     model = grn()
 
     model.add_input_species("A0")
@@ -147,7 +148,7 @@ def create_alu_model():
             {"name": "B0", "type": 1, "Kd": 5, "n": 4},
             {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
         ],
-        [{"name": "AluAND3"}],
+        [{"name": "AluAND4"}],
     )
 
     # AluAND5 gate
@@ -157,7 +158,7 @@ def create_alu_model():
             {"name": "A0", "type": 1, "Kd": 5, "n": 4},
             {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
         ],
-        [{"name": "AluAND3"}],
+        [{"name": "AluAND5"}],
     )
 
     # AluOR1 gate
@@ -323,24 +324,31 @@ def scaling_alu(inputA, inputB, I0, I1):
     results = []
     carry = 0
 
+    print(f'A: {A}')
+    print(f'B: {B}')
+
     for i in range(0, totalL, 2):
         T, Y = simulator.simulate_single(
-            model,
-            (A[i], A[i+1], B[i], B[i+1], carry, I0, I1),
-            plot_on=False
+            model, (A[i], A[i+1], B[i], B[i+1], carry, I0, I1), plot_on=False,
         )
+
+        print(f'Rotation {i}')
         
         c0 = Y[100][-3] > 50
         c1 = Y[100][-2] > 50
         carry = 100 if Y[100][-1] > 50 else 0
+
+        print(f'c0: {c0}')
+        print(f'c1: {c1}')
+        print(f'Carry: {carry}')
         
         results.extend([int(c0), int(c1)])
 
     return results, int(carry > 50)
 
-inputA = [1, 0, 1, 1]
-inputB = [1, 1, 0, 1]
-I0 = 0
+inputA = [1, 0, 0, 1]
+inputB = [1, 1, 1, 1]
+I0 = 1
 I1 = 1
 results, carry = scaling_alu(inputA, inputB, I0, I1)
 print(f"Results: {results}")

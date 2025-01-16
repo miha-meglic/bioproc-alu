@@ -146,7 +146,7 @@ model.add_gene(
         {"name": "B0", "type": 1, "Kd": 5, "n": 4},
         {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
     ],
-    [{"name": "AluAND3"}],
+    [{"name": "AluAND4"}],
 )
 
 # AluAND5 gate
@@ -156,7 +156,7 @@ model.add_gene(
         {"name": "A0", "type": 1, "Kd": 5, "n": 4},
         {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
     ],
-    [{"name": "AluAND3"}],
+    [{"name": "AluAND5"}],
 )
 
 # AluOR1 gate
@@ -300,12 +300,14 @@ model.add_gene(
     logic_type="or",
 )
 
-model.plot_network()
+#model.plot_network()
 
-T, Y = simulator.simulate_sequence(
-    model, [(0, 100, 0, 100, 100, 0, 0) , (0, 100, 0, 0, 100, 0, 0)]
+T, Y = simulator.simulate_single(
+    model, (100, 100, 0, 100, 0, 0, 0), plot_on=False,
 )
 
 #print(T)
 #print('-------------------------------')
-#print(Y)
+print(Y[100][-3])
+print(Y[100][-2])
+print(Y[100][-1])
