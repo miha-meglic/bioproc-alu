@@ -307,8 +307,12 @@ def create_alu_model():
 
 
 def scaling_alu(inputA, inputB, carry_in, I0, I1):
+    if I0 and I1:
+        raise NotImplementedError("Roll over not supported")
+
     A = [100 if x else 0 for x in inputA]
     B = [100 if x else 0 for x in inputB]
+    carry_in = 100 if carry_in else 0
     I0 = 100 if I0 else 0
     I1 = 100 if I1 else 0
 
