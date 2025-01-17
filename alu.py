@@ -36,7 +36,7 @@ model.add_species("Carry", 0.1)
 model.add_gene(
     10,
     [
-        {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A0", "type": 1, "Kd": 5, "n": 2},
         {"name": "B0", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluAND1"}],
@@ -46,7 +46,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A1", "type": 1, "Kd": 5, "n": 2},
         {"name": "B1", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluAND2"}],
@@ -56,7 +56,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A0", "type": -1, "Kd": 5, "n": 4},
+        {"name": "A0", "type": -1, "Kd": 5, "n": 2},
         {"name": "B0", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR1"}],
@@ -64,7 +64,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A0", "type": 1, "Kd": 5, "n": 2},
         {"name": "B0", "type": -1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR1"}],
@@ -74,7 +74,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A1", "type": -1, "Kd": 5, "n": 4},
+        {"name": "A1", "type": -1, "Kd": 5, "n": 2},
         {"name": "B1", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR2"}],
@@ -82,7 +82,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A1", "type": 1, "Kd": 5, "n": 2},
         {"name": "B1", "type": -1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR2"}],
@@ -92,7 +92,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND1", "type": -1, "Kd": 5, "n": 4},
+        {"name": "AluAND1", "type": -1, "Kd": 5, "n": 2},
         {"name": "AluXOR2", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR3"}],
@@ -100,7 +100,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 2},
         {"name": "AluXOR2", "type": -1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluXOR3"}],
@@ -110,7 +110,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 2},
         {"name": "AluXOR2", "type": 1, "Kd": 5, "n": 2},
     ],
     [{"name": "AluAND3"}],
@@ -120,8 +120,8 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND2", "type": 1, "Kd": 5, "n": 4},
-        {"name": "AluAND3", "type": 1, "Kd": 5, "n": 2},
+        {"name": "AluAND2", "type": 1, "Kd": 20, "n": 4},
+        {"name": "AluAND3", "type": 1, "Kd": 20, "n": 4},
     ],
     [{"name": "Carry"}],
     logic_type="or",
@@ -133,7 +133,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluXOR1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluXOR1", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": -1, "Kd": 5, "n": 2},
         {"name": "I1", "type": -1, "Kd": 5, "n": 2},
     ],
@@ -144,7 +144,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A0", "type": -1, "Kd": 5, "n": 4},
+        {"name": "A0", "type": -1, "Kd": 5, "n": 2},
         {"name": "I0", "type": -1, "Kd": 5, "n": 2},
         {"name": "I1", "type": 1, "Kd": 5, "n": 2},
     ],
@@ -155,7 +155,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluAND1", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": 1, "Kd": 5, "n": 2},
         {"name": "I1", "type": -1, "Kd": 5, "n": 2},
     ],
@@ -166,7 +166,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A1", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": 1, "Kd": 5, "n": 2},
         {"name": "I1", "type": 1, "Kd": 5, "n": 2},
     ],
@@ -192,7 +192,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluXOR3", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluXOR3", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": -1, "Kd": 5, "n": 2},
         {"name": "I1", "type": -1, "Kd": 5, "n": 2},
     ],
@@ -203,7 +203,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A1", "type": -1, "Kd": 5, "n": 4},
+        {"name": "A1", "type": -1, "Kd": 5, "n": 2},
         {"name": "I0", "type": -1, "Kd": 5, "n": 2},
         {"name": "I1", "type": 1, "Kd": 5, "n": 2},
     ],
@@ -214,7 +214,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "AluAND2", "type": 1, "Kd": 5, "n": 4},
+        {"name": "AluAND2", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": 1, "Kd": 5, "n": 2},
         {"name": "I1", "type": -1, "Kd": 5, "n": 2},
     ],
@@ -225,7 +225,7 @@ model.add_gene(
 model.add_gene(
     10,
     [
-        {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+        {"name": "A0", "type": 1, "Kd": 5, "n": 2},
         {"name": "I0", "type": 1, "Kd": 5, "n": 2},
         {"name": "I1", "type": 1, "Kd": 5, "n": 2},
     ],
@@ -245,12 +245,13 @@ model.add_gene(
     logic_type="or",
 )
 
-#model.plot_network()
+model.plot_network()
 
-T, Y = simulator.simulate_single(
-    model, (0, 100, 0, 100, 0, 0),
-    plot_on=False
+T, Y = simulator.simulate_sequence(
+    model, [(0, 100, 0, 100, 0, 0), (0, 100, 0, 100, 100, 0), (0, 100, 0, 100, 0, 0)],
+    t_single = 250,
+    plot_on=True
 )
 
-print(Y[100])
-print(model.species_names)
+#print(Y[100])
+#print(model.species_names)

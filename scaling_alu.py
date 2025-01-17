@@ -44,7 +44,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": 1, "Kd": 5, "n": 2},
             {"name": "B0", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluAND1"}],
@@ -54,7 +54,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A1", "type": 1, "Kd": 5, "n": 2},
             {"name": "B1", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluAND2"}],
@@ -64,7 +64,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": -1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": -1, "Kd": 5, "n": 2},
             {"name": "B0", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR1"}],
@@ -72,7 +72,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": 1, "Kd": 5, "n": 2},
             {"name": "B0", "type": -1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR1"}],
@@ -82,7 +82,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A1", "type": -1, "Kd": 5, "n": 4},
+            {"name": "A1", "type": -1, "Kd": 5, "n": 2},
             {"name": "B1", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR2"}],
@@ -90,7 +90,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A1", "type": 1, "Kd": 5, "n": 2},
             {"name": "B1", "type": -1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR2"}],
@@ -100,7 +100,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluOR2", "type": -1, "Kd": 5, "n": 4},
+            {"name": "AluOR2", "type": -1, "Kd": 5, "n": 2},
             {"name": "AluXOR2", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR3"}],
@@ -108,7 +108,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluOR2", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluOR2", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluXOR2", "type": -1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR3"}],
@@ -118,7 +118,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "CarryIN", "type": -1, "Kd": 5, "n": 4},
+            {"name": "CarryIN", "type": -1, "Kd": 5, "n": 2},
             {"name": "AluXOR1", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR4"}],
@@ -126,7 +126,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "CarryIN", "type": 1, "Kd": 5, "n": 4},
+            {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluXOR1", "type": -1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluXOR4"}],
@@ -136,7 +136,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluOR2", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluOR2", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluXOR2", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluAND3"}],
@@ -146,7 +146,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "B0", "type": 1, "Kd": 5, "n": 4},
+            {"name": "B0", "type": 1, "Kd": 5, "n": 2},
             {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluAND4"}],
@@ -156,7 +156,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": 1, "Kd": 5, "n": 2},
             {"name": "CarryIN", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "AluAND5"}],
@@ -166,7 +166,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluAND2", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluAND2", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluAND3", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "Carry"}],
@@ -177,7 +177,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluAND1", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluAND1", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluAND4", "type": 1, "Kd": 5, "n": 2},
             {"name": "AluAND5", "type": 1, "Kd": 5, "n": 2},
         ],
@@ -191,7 +191,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluXOR4", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluXOR4", "type": 1, "Kd": 5, "n": 2},
             {"name": "I0", "type": -1, "Kd": 5, "n": 2},
             {"name": "I1", "type": -1, "Kd": 5, "n": 2},
         ],
@@ -202,7 +202,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": -1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": -1, "Kd": 5, "n": 2},
             {"name": "I0", "type": -1, "Kd": 5, "n": 2},
             {"name": "I1", "type": 1, "Kd": 5, "n": 2},
         ],
@@ -213,7 +213,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluAND1", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluAND1", "type": 1, "Kd": 5, "n": 2},
             {"name": "I0", "type": 1, "Kd": 5, "n": 2},
             {"name": "I1", "type": -1, "Kd": 5, "n": 2},
         ],
@@ -224,7 +224,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A1", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A1", "type": 1, "Kd": 5, "n": 2},
             {"name": "I0", "type": 1, "Kd": 5, "n": 2},
             {"name": "I1", "type": 1, "Kd": 5, "n": 2},
         ],
@@ -235,10 +235,10 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "MultiAAND1", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiAAND2", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiAAND3", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiAAND4", "type": 1, "Kd": 20, "n": 4},
+            {"name": "MultiAAND1", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiAAND2", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiAAND3", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiAAND4", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "C0"}],
         logic_type="or",
@@ -250,7 +250,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "AluXOR3", "type": 1, "Kd": 5, "n": 4},
+            {"name": "AluXOR3", "type": 1, "Kd": 5, "n": 2},
             {"name": "I0", "type": -1, "Kd": 5, "n": 2},
             {"name": "I1", "type": -1, "Kd": 5, "n": 2},
         ],
@@ -261,7 +261,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A1", "type": -1, "Kd": 5, "n": 4},
+            {"name": "A1", "type": -1, "Kd": 5, "n": 2},
             {"name": "I0", "type": -1, "Kd": 5, "n": 2},
             {"name": "I1", "type": 1, "Kd": 5, "n": 2},
         ],
@@ -283,7 +283,7 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "A0", "type": 1, "Kd": 5, "n": 4},
+            {"name": "A0", "type": 1, "Kd": 5, "n": 2},
             {"name": "I0", "type": 1, "Kd": 5, "n": 2},
             {"name": "I1", "type": 1, "Kd": 5, "n": 2},
         ],
@@ -294,10 +294,10 @@ def create_alu_model():
     model.add_gene(
         10,
         [
-            {"name": "MultiBAND1", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiBAND2", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiBAND3", "type": 1, "Kd": 20, "n": 4},
-            {"name": "MultiBAND4", "type": 1, "Kd": 20, "n": 4},
+            {"name": "MultiBAND1", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiBAND2", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiBAND3", "type": 1, "Kd": 5, "n": 2},
+            {"name": "MultiBAND4", "type": 1, "Kd": 5, "n": 2},
         ],
         [{"name": "C1"}],
         logic_type="or",
@@ -343,7 +343,8 @@ def scaling_alu(inputA, inputB, carry_in, I0, I1):
 
         c0 = Y[100][-3] > 50
         c1 = Y[100][-2] > 50
-        carry = 100 if Y[100][-1] > 50 else 0
+        carry = Y[100][-1]
+        #carry = 100 if Y[100][-1] > 50 else 0
 
         # print(f'c0: {c0}')
         # print(f'c1: {c1}')
@@ -355,11 +356,11 @@ def scaling_alu(inputA, inputB, carry_in, I0, I1):
 
 
 if __name__ == "__main__":
-    inputA = [1, 0, 0, 1]
-    inputB = [1, 1, 1, 1]
-    carry_in = 0
+    inputA = [1, 0, 0, 1, 1, 0, 1, 1]
+    inputB = [1, 1, 1, 1, 0]
+    carry_in = 1
     I0 = 1
-    I1 = 1
+    I1 = 0
     results, carry = scaling_alu(inputA, inputB, carry_in, I0, I1)
     print(f"Results: {results}")
     print(f"Carry: {carry}")

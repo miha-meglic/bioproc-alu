@@ -152,14 +152,31 @@ def simulate_single(
     Y = z.T
 
     if plot_on:
-        plt.plot(T, Y)
+        input_indices = list(range(7))
+        output_indices = list(range(-3, 0))
+        plot_indices = input_indices + output_indices
+        
+        for idx in plot_indices:
+            plt.plot(T, Y[:, idx])
+        
         if legend:
-            plt.legend(grn.species_names)
+            selected_species = grn.species_names[:7] + grn.species_names[-3:]
+            plt.legend(selected_species)
 
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-
+        
         plt.show()
+
+    #if plot_on:
+    #    plt.plot(T, Y)
+    #    if legend:
+    #        plt.legend(grn.species_names)
+
+    #    plt.xlabel(xlabel)
+    #    plt.ylabel(ylabel)
+
+    #    plt.show()
 
     return T, Y
 
@@ -211,13 +228,30 @@ def simulate_sequence(
             T = np.append(T, T1 + T[-1])
 
     if plot_on:
-        plt.plot(T, Y)
+        input_indices = list(range(7))
+        output_indices = list(range(-3, 0))
+        plot_indices = input_indices + output_indices
+        
+        for idx in plot_indices:
+            plt.plot(T, Y[:, idx])
+        
         if legend:
-            plt.legend(grn.species_names)
+            selected_species = grn.species_names[:7] + grn.species_names[-3:]
+            plt.legend(selected_species)
 
         plt.xlabel(xlabel)
         plt.ylabel(ylabel)
-
+        
         plt.show()
+
+    #if plot_on:
+    #    plt.plot(T, Y)
+    #    if legend:
+    #        plt.legend(grn.species_names)
+
+    #    plt.xlabel(xlabel)
+    #    plt.ylabel(ylabel)
+
+    #    plt.show()
 
     return T, Y
